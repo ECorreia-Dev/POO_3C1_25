@@ -13,7 +13,6 @@ namespace POO_3C1_25.DTO
         private int idLivro, idAutor, idEditora, numPaginas;
         private string titulo;
         private double valor;
-        private DateTime dataCadastro;
 
         // Métodos
         public int IdLivro { get => idLivro; set => idLivro = value; }
@@ -67,20 +66,5 @@ namespace POO_3C1_25.DTO
             get { return this.valor; }
 
         } 
-        public DateTime DataCadastro
-        {
-            set
-            {
-                if (value != null)
-                {
-                    this.dataCadastro = value;
-                }
-                else
-                {
-                    throw new Exception("Preencha a Data.");
-                }
-            }
-            get { return this.dataCadastro; }
-        }
     }
 }

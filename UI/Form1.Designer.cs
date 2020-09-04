@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
@@ -36,22 +37,24 @@
             this.txt_idLivro = new System.Windows.Forms.TextBox();
             this.lbl_idAutor = new System.Windows.Forms.Label();
             this.lbl_idEditora = new System.Windows.Forms.Label();
-            this.txt_idAutor = new System.Windows.Forms.TextBox();
-            this.txt_idEditora = new System.Windows.Forms.TextBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.txt_Titulo = new System.Windows.Forms.TextBox();
             this.txt_Numpag = new System.Windows.Forms.TextBox();
-            this.lbl_datacad = new System.Windows.Forms.Label();
             this.lbl_numpag = new System.Windows.Forms.Label();
             this.lbl_Valor = new System.Windows.Forms.Label();
             this.txt_Valor = new System.Windows.Forms.TextBox();
-            this.dtp_Datacad = new System.Windows.Forms.DateTimePicker();
+            this.cbx_idAutor = new System.Windows.Forms.ComboBox();
+            this.cbx_idEditora = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_Pesquisar = new System.Windows.Forms.TextBox();
+            this.lbl_Pesquisa = new System.Windows.Forms.Label();
+            this.btn_Pesquisar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Livros)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(275, 25);
+            this.btnNovo.Location = new System.Drawing.Point(274, 64);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(100, 23);
             this.btnNovo.TabIndex = 0;
@@ -62,7 +65,7 @@
             // btnEditar
             // 
             this.btnEditar.Enabled = false;
-            this.btnEditar.Location = new System.Drawing.Point(275, 67);
+            this.btnEditar.Location = new System.Drawing.Point(274, 104);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 23);
             this.btnEditar.TabIndex = 1;
@@ -73,7 +76,7 @@
             // btnDeletar
             // 
             this.btnDeletar.Enabled = false;
-            this.btnDeletar.Location = new System.Drawing.Point(275, 106);
+            this.btnDeletar.Location = new System.Drawing.Point(274, 148);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(100, 23);
             this.btnDeletar.TabIndex = 2;
@@ -84,16 +87,16 @@
             // dtg_Livros
             // 
             this.dtg_Livros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_Livros.Location = new System.Drawing.Point(12, 172);
+            this.dtg_Livros.Location = new System.Drawing.Point(12, 202);
             this.dtg_Livros.Name = "dtg_Livros";
-            this.dtg_Livros.Size = new System.Drawing.Size(363, 143);
+            this.dtg_Livros.Size = new System.Drawing.Size(585, 184);
             this.dtg_Livros.TabIndex = 4;
             this.dtg_Livros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Livros_CellContentClick);
             // 
             // lbl_idlivro
             // 
             this.lbl_idlivro.AutoSize = true;
-            this.lbl_idlivro.Location = new System.Drawing.Point(12, 9);
+            this.lbl_idlivro.Location = new System.Drawing.Point(12, 48);
             this.lbl_idlivro.Name = "lbl_idlivro";
             this.lbl_idlivro.Size = new System.Drawing.Size(48, 13);
             this.lbl_idlivro.TabIndex = 5;
@@ -102,7 +105,7 @@
             // txt_idLivro
             // 
             this.txt_idLivro.Enabled = false;
-            this.txt_idLivro.Location = new System.Drawing.Point(12, 25);
+            this.txt_idLivro.Location = new System.Drawing.Point(12, 64);
             this.txt_idLivro.Name = "txt_idLivro";
             this.txt_idLivro.Size = new System.Drawing.Size(100, 20);
             this.txt_idLivro.TabIndex = 6;
@@ -110,7 +113,7 @@
             // lbl_idAutor
             // 
             this.lbl_idAutor.AutoSize = true;
-            this.lbl_idAutor.Location = new System.Drawing.Point(12, 51);
+            this.lbl_idAutor.Location = new System.Drawing.Point(12, 90);
             this.lbl_idAutor.Name = "lbl_idAutor";
             this.lbl_idAutor.Size = new System.Drawing.Size(50, 13);
             this.lbl_idAutor.TabIndex = 7;
@@ -119,32 +122,16 @@
             // lbl_idEditora
             // 
             this.lbl_idEditora.AutoSize = true;
-            this.lbl_idEditora.Location = new System.Drawing.Point(12, 90);
+            this.lbl_idEditora.Location = new System.Drawing.Point(12, 132);
             this.lbl_idEditora.Name = "lbl_idEditora";
             this.lbl_idEditora.Size = new System.Drawing.Size(58, 13);
             this.lbl_idEditora.TabIndex = 8;
             this.lbl_idEditora.Text = "Id - Editora";
             // 
-            // txt_idAutor
-            // 
-            this.txt_idAutor.Enabled = false;
-            this.txt_idAutor.Location = new System.Drawing.Point(12, 67);
-            this.txt_idAutor.Name = "txt_idAutor";
-            this.txt_idAutor.Size = new System.Drawing.Size(100, 20);
-            this.txt_idAutor.TabIndex = 9;
-            // 
-            // txt_idEditora
-            // 
-            this.txt_idEditora.Enabled = false;
-            this.txt_idEditora.Location = new System.Drawing.Point(12, 106);
-            this.txt_idEditora.Name = "txt_idEditora";
-            this.txt_idEditora.Size = new System.Drawing.Size(100, 20);
-            this.txt_idEditora.TabIndex = 10;
-            // 
             // lbl_Titulo
             // 
             this.lbl_Titulo.AutoSize = true;
-            this.lbl_Titulo.Location = new System.Drawing.Point(141, 9);
+            this.lbl_Titulo.Location = new System.Drawing.Point(141, 48);
             this.lbl_Titulo.Name = "lbl_Titulo";
             this.lbl_Titulo.Size = new System.Drawing.Size(35, 13);
             this.lbl_Titulo.TabIndex = 11;
@@ -152,26 +139,17 @@
             // 
             // txt_Titulo
             // 
-            this.txt_Titulo.Location = new System.Drawing.Point(144, 25);
+            this.txt_Titulo.Location = new System.Drawing.Point(144, 64);
             this.txt_Titulo.Name = "txt_Titulo";
             this.txt_Titulo.Size = new System.Drawing.Size(100, 20);
             this.txt_Titulo.TabIndex = 12;
             // 
             // txt_Numpag
             // 
-            this.txt_Numpag.Location = new System.Drawing.Point(144, 106);
+            this.txt_Numpag.Location = new System.Drawing.Point(144, 104);
             this.txt_Numpag.Name = "txt_Numpag";
             this.txt_Numpag.Size = new System.Drawing.Size(100, 20);
             this.txt_Numpag.TabIndex = 14;
-            // 
-            // lbl_datacad
-            // 
-            this.lbl_datacad.AutoSize = true;
-            this.lbl_datacad.Location = new System.Drawing.Point(141, 51);
-            this.lbl_datacad.Name = "lbl_datacad";
-            this.lbl_datacad.Size = new System.Drawing.Size(90, 13);
-            this.lbl_datacad.TabIndex = 15;
-            this.lbl_datacad.Text = "Data de Cadastro";
             // 
             // lbl_numpag
             // 
@@ -185,7 +163,7 @@
             // lbl_Valor
             // 
             this.lbl_Valor.AutoSize = true;
-            this.lbl_Valor.Location = new System.Drawing.Point(141, 129);
+            this.lbl_Valor.Location = new System.Drawing.Point(145, 132);
             this.lbl_Valor.Name = "lbl_Valor";
             this.lbl_Valor.Size = new System.Drawing.Size(31, 13);
             this.lbl_Valor.TabIndex = 17;
@@ -193,34 +171,83 @@
             // 
             // txt_Valor
             // 
-            this.txt_Valor.Location = new System.Drawing.Point(144, 145);
+            this.txt_Valor.Location = new System.Drawing.Point(144, 148);
             this.txt_Valor.Name = "txt_Valor";
             this.txt_Valor.Size = new System.Drawing.Size(100, 20);
             this.txt_Valor.TabIndex = 18;
             // 
-            // dtp_Datacad
+            // cbx_idAutor
             // 
-            this.dtp_Datacad.Location = new System.Drawing.Point(144, 66);
-            this.dtp_Datacad.Name = "dtp_Datacad";
-            this.dtp_Datacad.Size = new System.Drawing.Size(100, 20);
-            this.dtp_Datacad.TabIndex = 19;
-            this.dtp_Datacad.Value = new System.DateTime(2020, 9, 2, 22, 56, 14, 0);
+            this.cbx_idAutor.FormattingEnabled = true;
+            this.cbx_idAutor.Location = new System.Drawing.Point(12, 103);
+            this.cbx_idAutor.Name = "cbx_idAutor";
+            this.cbx_idAutor.Size = new System.Drawing.Size(100, 21);
+            this.cbx_idAutor.TabIndex = 20;
+            // 
+            // cbx_idEditora
+            // 
+            this.cbx_idEditora.FormattingEnabled = true;
+            this.cbx_idEditora.Location = new System.Drawing.Point(12, 148);
+            this.cbx_idEditora.Name = "cbx_idEditora";
+            this.cbx_idEditora.Size = new System.Drawing.Size(100, 21);
+            this.cbx_idEditora.TabIndex = 21;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(393, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(204, 143);
+            this.panel1.TabIndex = 22;
+            // 
+            // txt_Pesquisar
+            // 
+            this.txt_Pesquisar.Location = new System.Drawing.Point(12, 25);
+            this.txt_Pesquisar.Name = "txt_Pesquisar";
+            this.txt_Pesquisar.Size = new System.Drawing.Size(232, 20);
+            this.txt_Pesquisar.TabIndex = 23;
+            // 
+            // lbl_Pesquisa
+            // 
+            this.lbl_Pesquisa.AutoSize = true;
+            this.lbl_Pesquisa.Location = new System.Drawing.Point(12, 9);
+            this.lbl_Pesquisa.Name = "lbl_Pesquisa";
+            this.lbl_Pesquisa.Size = new System.Drawing.Size(56, 13);
+            this.lbl_Pesquisa.TabIndex = 24;
+            this.lbl_Pesquisa.Text = "Pesquisar:";
+            // 
+            // btn_Pesquisar
+            // 
+            this.btn_Pesquisar.Location = new System.Drawing.Point(274, 25);
+            this.btn_Pesquisar.Name = "btn_Pesquisar";
+            this.btn_Pesquisar.Size = new System.Drawing.Size(100, 23);
+            this.btn_Pesquisar.TabIndex = 25;
+            this.btn_Pesquisar.Text = "Pesquisar";
+            this.btn_Pesquisar.UseVisualStyleBackColor = true;
+            this.btn_Pesquisar.Click += new System.EventHandler(this.btn_Pesquisar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 324);
-            this.Controls.Add(this.dtp_Datacad);
+            this.ClientSize = new System.Drawing.Size(610, 398);
+            this.Controls.Add(this.btn_Pesquisar);
+            this.Controls.Add(this.lbl_Pesquisa);
+            this.Controls.Add(this.txt_Pesquisar);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.cbx_idEditora);
+            this.Controls.Add(this.cbx_idAutor);
             this.Controls.Add(this.txt_Valor);
             this.Controls.Add(this.lbl_Valor);
             this.Controls.Add(this.lbl_numpag);
-            this.Controls.Add(this.lbl_datacad);
             this.Controls.Add(this.txt_Numpag);
             this.Controls.Add(this.txt_Titulo);
             this.Controls.Add(this.lbl_Titulo);
-            this.Controls.Add(this.txt_idEditora);
-            this.Controls.Add(this.txt_idAutor);
             this.Controls.Add(this.lbl_idEditora);
             this.Controls.Add(this.lbl_idAutor);
             this.Controls.Add(this.txt_idLivro);
@@ -249,16 +276,18 @@
         private System.Windows.Forms.TextBox txt_idLivro;
         private System.Windows.Forms.Label lbl_idAutor;
         private System.Windows.Forms.Label lbl_idEditora;
-        private System.Windows.Forms.TextBox txt_idAutor;
-        private System.Windows.Forms.TextBox txt_idEditora;
         private System.Windows.Forms.Label lbl_Titulo;
         private System.Windows.Forms.TextBox txt_Titulo;
         private System.Windows.Forms.TextBox txt_Numpag;
-        private System.Windows.Forms.Label lbl_datacad;
         private System.Windows.Forms.Label lbl_numpag;
         private System.Windows.Forms.Label lbl_Valor;
         private System.Windows.Forms.TextBox txt_Valor;
-        private System.Windows.Forms.DateTimePicker dtp_Datacad;
+        private System.Windows.Forms.ComboBox cbx_idAutor;
+        private System.Windows.Forms.ComboBox cbx_idEditora;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txt_Pesquisar;
+        private System.Windows.Forms.Label lbl_Pesquisa;
+        private System.Windows.Forms.Button btn_Pesquisar;
     }
 }
 

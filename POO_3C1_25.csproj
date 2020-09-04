@@ -50,6 +50,7 @@
     <Compile Include="BLL\BLL_Livro.cs" />
     <Compile Include="DAL\DAL_Livro.cs" />
     <Compile Include="DTO\DTO_Livro.cs" />
+    <Compile Include="LimpaForm.cs" />
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

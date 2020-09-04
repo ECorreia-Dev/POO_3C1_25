@@ -29,23 +29,27 @@ namespace POO_3C1_25
         private void Form1_Load(object sender, EventArgs e)
         {
             dtg_Livros.DataSource = bllLivro.ListarLivros();
+            this.PreencheIdAutor();
+            this.PreencheIdEditora();
         } 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             try
             {
                 // Passagem dos dados da UI para o DTO
-                dtoLivro.IdAutor = int.Parse(txt_idAutor.Text);
-                dtoLivro.IdEditora = int.Parse(txt_idEditora.Text);
+                dtoLivro.IdAutor = int.Parse(cbx_idAutor.Text);
+                dtoLivro.IdEditora = int.Parse(cbx_idEditora.Text);
                 dtoLivro.Titulo = txt_Titulo.Text.ToString();
-                dtoLivro.DataCadastro = dtp_Datacad.Value; // Erro
                 dtoLivro.NumPaginas = int.Parse(txt_Numpag.Text);
-                dtoLivro.Valor = int.Parse(txt_Valor.Text);
+                dtoLivro.Valor = double.Parse(txt_Valor.Text);
 
 
                 bllLivro.InserirLivros(dtoLivro);
                 MessageBox.Show("Livro inserido com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtg_Livros.DataSource = bllLivro.ListarLivros();
+
+                new LimpaForm(this);
+
             }
             catch (Exception ex)
             {
@@ -59,18 +63,16 @@ namespace POO_3C1_25
             try
             {
                 // Passagem dos dados da UI para o DTO
-                dtoLivro.IdAutor = int.Parse(txt_idAutor.Text);
-                dtoLivro.IdEditora = int.Parse(txt_idEditora.Text);
+                dtoLivro.IdAutor = int.Parse(cbx_idAutor.Text);
+                dtoLivro.IdEditora = int.Parse(cbx_idEditora.Text);
                 dtoLivro.Titulo = txt_Titulo.Text.ToString();
-                dtoLivro.DataCadastro = dtp_Datacad.Value; // Erro
                 dtoLivro.NumPaginas = int.Parse(txt_Numpag.Text);
-                dtoLivro.Valor = int.Parse(txt_Valor.Text);
+                dtoLivro.Valor = double.Parse(txt_Valor.Text);
 
 
-                bllLivro.InserirLivros(dtoLivro);
+                bllLivro.AlterarLivros(dtoLivro);
                 MessageBox.Show("Livro alterado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtg_Livros.DataSource = bllLivro.ListarLivros();
-
 
 
             }
@@ -102,15 +104,38 @@ namespace POO_3C1_25
         private void dtg_Livros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txt_idLivro.Text = dtg_Livros.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txt_idAutor.Text = dtg_Livros.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txt_idEditora.Text = dtg_Livros.Rows[e.RowIndex].Cells[2].Value.ToString();
             txt_Titulo.Text = dtg_Livros.Rows[e.RowIndex].Cells[3].Value.ToString();
-            dtp_Datacad.Text = dtg_Livros.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txt_Numpag.Text = dtg_Livros.Rows[e.RowIndex].Cells[5].Value.ToString();
-            txt_Valor.Text = dtg_Livros.Rows[e.RowIndex].Cells[6].Value.ToString();
+            txt_Numpag.Text = dtg_Livros.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txt_Valor.Text = dtg_Livros.Rows[e.RowIndex].Cells[5].Value.ToString();
             // Habilitar o botao Excluir
             this.btnDeletar.Enabled = true;
             btnEditar.Enabled = true;
+        }
+
+        public void PreencheIdAutor()
+        {
+            cbx_idAutor.DataSource = bllLivro.ListarLivros();
+            // Indicar o campo que o usuario verá no combo
+            cbx_idAutor.DisplayMember = "nome";
+            //Indicar o campo que será gravado no banco
+            cbx_idAutor.ValueMember = "idautor";
+        }
+
+        public void PreencheIdEditora()
+        {
+            cbx_idEditora.DataSource = bllLivro.ListarLivros();
+            // Indicar o campo que o usuario verá no combo
+            cbx_idEditora.DisplayMember = "nome";
+            //Indicar o campo que será gravado no banco
+            cbx_idEditora.ValueMember = "ideditora";
+        }
+
+        private void btn_Pesquisar_Click(object sender, EventArgs e)
+        {
+            string condicao = "titulo like '%" + txt_Pesquisar.Text + "%'";
+
+            ;
+            dtg_Livros.DataSource = bllLivro.PesquisarLivros(condicao);
         }
     }
 }

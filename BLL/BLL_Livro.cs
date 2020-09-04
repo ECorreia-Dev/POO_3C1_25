@@ -14,6 +14,12 @@ namespace POO_3C1_25.BLL
 
         private DAL_Livro DaoLivro = new DAL_Livro();
 
+        public DataTable PesquisarLivros(string condicao)
+        {
+            string sql = string.Format($@"select * from tbl_livro where " + condicao);
+            return DaoLivro.executarConsulta(sql);
+        }
+
         public DataTable ListarLivros()
         {
             string sql = string.Format($@"select * from tbl_livro");
@@ -25,7 +31,6 @@ namespace POO_3C1_25.BLL
             string sql = string.Format($@"INSERT INTO tbl_livro VALUES (NULL,'{ObjLivro.IdAutor}',
                                                                           '{ObjLivro.IdEditora}',
                                                                           '{ObjLivro.Titulo}',
-                                                                          '{ObjLivro.DataCadastro}',
                                                                           '{ObjLivro.NumPaginas}',
                                                                            '{ObjLivro.Valor}');");
             DaoLivro.executarComando(sql);
@@ -34,10 +39,9 @@ namespace POO_3C1_25.BLL
 
         public void AlterarLivros(DTO_Livro dtolivro)
         {
-            string sql = string.Format($@"UPDATE tbl_cliente set idAutor = '{dtolivro.IdAutor}',
+            string sql = string.Format($@"UPDATE tbl_livro set idAutor = '{dtolivro.IdAutor}',
                                                                idEditora = '{dtolivro.IdEditora}',
                                                                titulo = '{dtolivro.Titulo}',
-                                                               dataCadastro = '{dtolivro.DataCadastro}',
                                                                numPaginas ='{dtolivro.NumPaginas}',
                                                                valor ='{dtolivro.Valor}'
                                                  where idLivro = '{dtolivro.IdLivro}';");
