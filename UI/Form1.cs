@@ -71,8 +71,8 @@ namespace POO_3C1_25
 
 
                 bllLivro.AlterarLivros(dtoLivro);
-                MessageBox.Show("Livro alterado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtg_Livros.DataSource = bllLivro.ListarLivros();
+                MessageBox.Show("Livro alterado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             }
@@ -109,14 +109,14 @@ namespace POO_3C1_25
             txt_Valor.Text = dtg_Livros.Rows[e.RowIndex].Cells[5].Value.ToString();
             // Habilitar o botao Excluir
             this.btnDeletar.Enabled = true;
-            btnEditar.Enabled = true;
+            this.btnEditar.Enabled = true;
         }
 
         public void PreencheIdAutor()
         {
             cbx_idAutor.DataSource = bllLivro.ListarLivros();
             // Indicar o campo que o usuario verá no combo
-            cbx_idAutor.DisplayMember = "nome";
+            cbx_idAutor.DisplayMember = "idautor";
             //Indicar o campo que será gravado no banco
             cbx_idAutor.ValueMember = "idautor";
         }
@@ -125,7 +125,7 @@ namespace POO_3C1_25
         {
             cbx_idEditora.DataSource = bllLivro.ListarLivros();
             // Indicar o campo que o usuario verá no combo
-            cbx_idEditora.DisplayMember = "nome";
+            cbx_idEditora.DisplayMember = "ideditora";
             //Indicar o campo que será gravado no banco
             cbx_idEditora.ValueMember = "ideditora";
         }
@@ -134,7 +134,6 @@ namespace POO_3C1_25
         {
             string condicao = "titulo like '%" + txt_Pesquisar.Text + "%'";
 
-            ;
             dtg_Livros.DataSource = bllLivro.PesquisarLivros(condicao);
         }
     }
