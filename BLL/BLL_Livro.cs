@@ -37,14 +37,14 @@ namespace POO_3C1_25.BLL
 
         }
 
-        public void AlterarLivros(DTO_Livro dtolivro)
+        public void AlterarLivros(DTO_Livro objLivro)
         {
-            string sql = string.Format($@"UPDATE tbl_livro set idAutor = '{dtolivro.IdAutor}',
-                                                               idEditora = '{dtolivro.IdEditora}',
-                                                               titulo = '{dtolivro.Titulo}',
-                                                               numPaginas ='{dtolivro.NumPaginas}',
-                                                               valor ='{dtolivro.Valor}'
-                                                 where idLivro = '{dtolivro.IdLivro}';");
+            string sql = string.Format($@"UPDATE tbl_livro set idAutor = '{objLivro.IdAutor}',
+                                                               idEditora = '{objLivro.IdEditora}',
+                                                               titulo = '{objLivro.Titulo}',
+                                                               numPaginas ='{objLivro.NumPaginas}',
+                                                               valor ='{objLivro.Valor}'
+                                                 where idLivro = '{objLivro.IdLivro}';");
             DaoLivro.executarComando(sql);
 
         }
