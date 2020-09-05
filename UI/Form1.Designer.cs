@@ -258,7 +258,7 @@
             this.Controls.Add(this.btnNovo);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Livros";
+            this.Text = "Livraria - Eduardo O. & Lucas Mendonça";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Livros)).EndInit();
             this.ResumeLayout(false);

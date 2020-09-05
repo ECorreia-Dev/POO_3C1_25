@@ -14,6 +14,9 @@ namespace POO_3C1_25.BLL
 
         private DAL_Livro DaoLivro = new DAL_Livro();
 
+        //Projeto desenvolvido por alunos da turma 3C1:
+        //Eduardo Oliveira - 07 && Lucas Mendonça - 18
+
         public DataTable PesquisarLivros(string condicao)
         {
             string sql = string.Format($@"select * from tbl_livro where " + condicao);

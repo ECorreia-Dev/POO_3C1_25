@@ -28,6 +28,8 @@ namespace POO_3C1_25
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Projeto desenvolvido por alunos da turma 3C1:
+            //Eduardo Oliveira - 07 && Lucas Mendonça - 18
             dtg_Livros.DataSource = bllLivro.ListarLivros();
             this.PreencheIdAutor();
             this.PreencheIdEditora();

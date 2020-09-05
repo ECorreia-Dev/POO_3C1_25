@@ -9,6 +9,10 @@ namespace POO_3C1_25.DTO
 {
     class DTO_Livro
     {
+
+        //Projeto desenvolvido por alunos da turma 3C1:
+        //Eduardo Oliveira - 07 && Lucas Mendonça - 18
+
         // Atributos
         private int idLivro, idAutor, idEditora, numPaginas;
         private string titulo;

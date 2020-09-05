@@ -10,6 +10,8 @@ namespace POO_3C1_25.DAL
 {
     class DAL_Livro
     {
+        //Projeto desenvolvido por alunos da turma 3C1:
+        //Eduardo Oliveira - 07 && Lucas Mendonça - 18
 
         private MySqlConnection conexao;
         private string string_conexao = "Persist security info = false; " +
